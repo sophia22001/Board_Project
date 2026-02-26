@@ -37,7 +37,8 @@ public class BoardService {
     // 게시물 전체 조회
     @Transactional(readOnly = true) // 조회 전용일 때 최적화
     public List<PostListResponse> getPosts() {
-        List<Post> posts = postRepository.findAll();
+//        List<Post> posts = postRepository.findAll();
+        List<Post> posts = postRepository.findAllPostsWithComments();
 
         return posts.stream()
                 .map(p-> new PostListResponse(
