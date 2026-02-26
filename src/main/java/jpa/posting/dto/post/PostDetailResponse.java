@@ -1,5 +1,6 @@
-package jpa.posting.dto;
+package jpa.posting.dto.post;
 
+import jpa.posting.dto.comment.CommentResponse;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

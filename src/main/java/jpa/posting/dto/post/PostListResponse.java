@@ -1,4 +1,4 @@
-package jpa.posting.dto;
+package jpa.posting.dto.post;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

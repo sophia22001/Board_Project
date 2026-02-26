@@ -1,8 +1,11 @@
 package jpa.posting.controller;
 
 
-import jpa.posting.dto.*;
-import jpa.posting.entity.Post;
+import jpa.posting.dto.comment.CommentCreateRequest;
+import jpa.posting.dto.post.PostCreateRequest;
+import jpa.posting.dto.post.PostCreateResponse;
+import jpa.posting.dto.post.PostDetailResponse;
+import jpa.posting.dto.post.PostListResponse;
 import jpa.posting.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

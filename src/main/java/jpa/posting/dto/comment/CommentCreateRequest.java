@@ -1,4 +1,4 @@
-package jpa.posting.dto;
+package jpa.posting.dto.comment;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,7 +1,12 @@
 package jpa.posting.service;
 
 
-import jpa.posting.dto.*;
+import jpa.posting.dto.comment.CommentCreateRequest;
+import jpa.posting.dto.comment.CommentResponse;
+import jpa.posting.dto.post.PostCreateRequest;
+import jpa.posting.dto.post.PostCreateResponse;
+import jpa.posting.dto.post.PostDetailResponse;
+import jpa.posting.dto.post.PostListResponse;
 import jpa.posting.entity.Comment;
 import jpa.posting.entity.Post;
 import jpa.posting.repository.CommentRepository;
