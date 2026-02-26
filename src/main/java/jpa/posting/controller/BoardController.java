@@ -36,7 +36,7 @@ public class BoardController {
             @PathVariable Long postId,
             @RequestBody CommentCreateRequest dto
             ) {
-        boardService.addContent(postId, dto);
+        boardService.addComment(postId, dto);
         return postId + "번 게시글에 댓글이 등록되었습니다.";
     }
 }

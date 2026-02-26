@@ -65,7 +65,7 @@ public class BoardService {
 
     // 이미 있는 게시글에 댓글만 추가
     @Transactional
-    public void addContent(Long postId, CommentCreateRequest dto){
+    public void addComment(Long postId, CommentCreateRequest dto){
         // 1. 이미 존재하는 게시글 찾기 (없으면 에러)
         Post post = postRepository.findById(postId).orElseThrow(()->new RuntimeException("게시글을 찾을 수 없습니다."));
 
