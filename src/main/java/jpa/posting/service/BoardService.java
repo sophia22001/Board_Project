@@ -24,6 +24,7 @@ public class BoardService {
     private final PostRepository postRepository;
     private final CommentRepository commentRepository;
 
+    // 게시물 생성
     @Transactional
     public PostCreateResponse createPost(PostCreateRequest dto) {
         Post post = new Post();
@@ -55,7 +56,7 @@ public class BoardService {
         Post post = postRepository.findById(id).orElseThrow(()-> new RuntimeException("게시물이 없습니다."));
 
         // 댓글 엔티티 리스트를 DTO 리스트로 변환 (지연 로딩 발생 시점)
-        List<CommentResponse> commentDtos = post.getComments().stream()
+        List<CommentResponse> comments = post.getComments().stream()
                 .map(c-> new CommentResponse(c.getId(), c.getComment()))
                 .toList();
 
@@ -63,11 +64,9 @@ public class BoardService {
                 post.getId(),
                 post.getTitle(),
                 post.getContent(),
-                commentDtos
+                comments
         );
     }
-
-
 
     // 이미 있는 게시글에 댓글만 추가
     @Transactional
@@ -86,5 +85,16 @@ public class BoardService {
         // 4. 댓글 저장
         commentRepository.save(comment);
 
+    }
+
+    // 게시물 삭제
+    @Transactional
+    public void deletePost(Long postId) {
+        // 게시물이 존재하는지 확인
+        Post post = postRepository.findById(postId)
+                .orElseThrow(() -> new IllegalArgumentException("해당 게시물이 없습니다. id=" + postId));
+
+        // 삭제
+        postRepository.delete(post);
     }
 }

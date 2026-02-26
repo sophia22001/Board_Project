@@ -29,9 +29,9 @@ public class BoardController {
         return boardService.getPosts();
     }
 
-    @GetMapping("/{id}")
-    public PostDetailResponse getPostById(@PathVariable Long id) {
-        return boardService.getPost(id);
+    @GetMapping("/{postId}")
+    public PostDetailResponse getPostById(@PathVariable Long postId) {
+        return boardService.getPost(postId);
     }
 
     @PostMapping("/{postId}/comments")
@@ -40,6 +40,12 @@ public class BoardController {
             @RequestBody CommentCreateRequest dto
             ) {
         boardService.addComment(postId, dto);
-        return postId + "번 게시글에 댓글이 등록되었습니다.";
+        return postId + "번 게시물에 댓글이 등록되었습니다.";
+    }
+
+    @DeleteMapping("/{postId}")
+    public String deletePost(@PathVariable Long postId) {
+        boardService.deletePost(postId);
+        return postId + "번 게시물이 삭제되었습니다.";
     }
 }

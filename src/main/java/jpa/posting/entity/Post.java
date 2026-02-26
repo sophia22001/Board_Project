@@ -25,6 +25,7 @@ public class Post {
 
     // 하나의 게시글(One)에는 여러개의 댓글(Many)이 속한다.
     // mappedBy = "post" : 나는 주인이 아니다.
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL) // 게시글을 저장할 때 댓글도 같이 저장하는 옵셥
+    // cascade : Post(부모)의 운명을 Comment(자식)가 그대로 따른다 (저장 / 삭제)
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> comments = new ArrayList<>();
 }
